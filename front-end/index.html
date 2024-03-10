@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cook-book</title>
+    <link rel="stylesheet" type="text/css" href="./static/index.css" />
+    <script type="module" src="./src/app.js"></script>
+</head>
+
+<body>
+    <nav class="navigation" id="navigation">
+        <p>Welcome, <span>Name.</span></p>
+        <a id="logoutLink" href="">Logout</a>
+        <a id="homeLink" href="">Home</a>
+        <a id="loginLink" href="">Login</a>
+        <a id="registerLink" href="">Register</a>
+        <a id="createLink" href="">Create</a>
+    </nav>
+
+    <div class="reception" id="reception">
+        <ul>
+            <li>
+                <img src="https://img.haskovo.net/uploads/recipes/2015/04/02/12351.jpg" alt="" />
+                <h3><a href="">Banica with chees</a></h3>
+                <p>Cheese-220gr., Yogurt-30gr., Eggs-6, Crusts-1</p>
+            </li>
+            <li>
+                <img src="https://www.shutterstock.com/image-photo/traditional-home-made-deep-fried-260nw-2116672820.jpg"
+                    alt="" />
+                <h3><a href="">Mekica</a></h3>
+                <p>Cheese, Oil, Flower</p>
+            </li>
+            <li>
+                <img src="https://prikaznakuhnq.com/wp-content/uploads/2021/06/DSC05581-800x445.jpg" alt="" />
+                <h3><a href="">Bob with sausage</a></h3>
+                <p>Bob, Sausage, Oil, Salt</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="login">
+        <h2>Login</h2>
+        <form class="loginForm">
+            <label>Email:</label>
+            <input type="email" id="email" />
+            <label>Password:</label>
+            <input type="password" id="password" />
+            <input type="submit" id="submit" value="Login" />
+            <p>Don't have an Account ? <a href="">Register</a></p>
+        </form>
+    </div>
+
+    <div class="register">
+        <h2>Register</h2>
+        <form class="registerForm">
+            <label>Email:</label>
+            <input type="email" id="email" />
+            <label>First Name:</label>
+            <input type="text" id="firstName" />
+            <label>Last Name:</label>
+            <input type="text" id="lastName" />
+            <label>Password:</label>
+            <input type="password" id="password" />
+            <input type="submit" id="submit" value="Register" />
+            <p>You have an Account ? <a href="">Login</a></p>
+        </form>
+    </div>
+</body>
+
+</html>
