@@ -1,0 +1,226 @@
+body {
+    background: #DCDCDC;
+}
+
+.navigation {
+    background-color: rgba(39, 183, 245, 0.69);
+    padding: 8px;
+    border: 1px solid #666;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+}
+
+.navigation a {
+    margin: 10px;
+    text-decoration: none;
+    border: none;
+    padding: 7px;
+    color: #FFF;
+    font-size: 15px;
+}
+
+.navigation a:hover {
+    background-color: #ADFF2F;
+    color: #000;
+    border-radius: 15px;
+}
+
+.navigation p {
+    font-size: 17px;
+    color: #FFF;
+}
+
+.navigation p span {
+    font-size: 17px;
+    color: #000;
+}
+
+.reception {
+    margin: 20px;
+    background: #FFF;
+}
+
+ul {
+    list-style-type: none;
+    width: 500px;
+}
+
+.reception h3 a {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+    color: #000;
+    text-decoration: none;
+}
+
+.reception h3 a:hover {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+    color: #0000FF;
+    text-decoration: underline;
+}
+
+.reception li img {
+    float: left;
+    width: 240px;
+    height: auto;
+    margin: 0 15px 0 0;
+}
+
+.reception li p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+}
+
+.reception li {
+    padding: 10px;
+    overflow: auto;
+}
+
+
+
+
+.login {
+    background: #FFF;
+    width: 30%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.login h2 {
+    padding: 20px;
+    text-align: center;
+}
+
+.login .loginForm {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login label {
+    font-size: 17px;
+}
+
+.login input[type="email"] {
+    margin-top: 7px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 12px;
+}
+
+.login input[type="password"] {
+    margin-top: 7px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 12px;
+}
+
+.login input[type="submit"] {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 18px;
+    width: 85%;
+    background: #1E90FF;
+    color: #FFF;
+}
+
+.login input[type="submit"]:hover {
+    background: #ADFF2F;
+    color: #000;
+}
+
+.login p {
+    font-size: 15px;
+    padding-bottom: 12px;
+}
+
+.login p a {
+    color: #0000FF;
+    text-decoration: none;
+}
+
+.login p a:hover {
+    color: #0000FF;
+    text-decoration: underline;
+}
+
+.register {
+    background: #FFF;
+    width: 30%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.register h2 {
+    padding: 20px;
+    text-align: center;
+}
+
+.register .registerForm {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.register label {
+    font-size: 17px;
+}
+
+.register input[type="email"] {
+    margin-top: 7px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 12px;
+}
+
+.register input[type="text"] {
+    margin-top: 7px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 12px;
+}
+
+.register input[type="password"] {
+    margin-top: 7px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 12px;
+}
+
+.register input[type="submit"] {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 18px;
+    width: 85%;
+    background: #1E90FF;
+    color: #FFF;
+}
+
+.register input[type="submit"]:hover {
+    background: #ADFF2F;
+    color: #000;
+}
+
+.register p {
+    font-size: 15px;
+    padding-bottom: 12px;
+}
+
+.register p a {
+    color: #0000FF;
+    text-decoration: none;
+}
+
+.register p a:hover {
+    color: #0000FF;
+    text-decoration: underline;
+}
