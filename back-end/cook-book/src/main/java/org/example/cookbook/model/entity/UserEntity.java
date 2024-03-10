@@ -2,17 +2,11 @@ package org.example.cookbook.model.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")
-@Getter
-@Setter
-@Builder
 @AllArgsConstructor
 public class UserEntity {
     @Id
@@ -36,5 +30,59 @@ public class UserEntity {
 
     public UserEntity() {
         this.createdAt = LocalDateTime.now();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public UserEntity setId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public UserEntity setFirstName(String firstName) {
+        this.firstName = firstName;
+        return this;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public UserEntity setLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public UserEntity setEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public UserEntity setPassword(String password) {
+        this.password = password;
+        return this;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public UserEntity setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+        return this;
     }
 }
