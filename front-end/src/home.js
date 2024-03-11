@@ -1,4 +1,4 @@
 export function showHomePage() {
-    document.querySelectorAll("div").forEach(div => div.style.display = "none");
-    document.getElementById("reception").style.display = "block";
+    document.querySelectorAll("section").forEach(section => section.style.display = "none");
+    document.querySelector("section.receptions").style.display = "block";
 }
