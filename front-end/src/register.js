@@ -26,7 +26,7 @@ async function onRegister(event) {
         },
         body: JSON.stringify({ email, firstName, lastName, password })
     });
-    const data = await registerCheck.json();
+    const data = await response.json();
 
     console.log(data);
 }
