@@ -1,11 +1,10 @@
 package org.example.cookbook.web.rest;
 
 import lombok.RequiredArgsConstructor;
-import org.example.cookbook.model.dto.LoginForm;
 import org.example.cookbook.model.dto.AuthResponse;
+import org.example.cookbook.model.dto.LoginForm;
 import org.example.cookbook.model.dto.RegisterForm;
 import org.example.cookbook.service.UserService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
