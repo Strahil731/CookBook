@@ -1,12 +1,16 @@
 package org.example.cookbook.service;
 
 import lombok.RequiredArgsConstructor;
-import org.example.cookbook.exception.UserAlreadyExistsException;
+import org.example.cookbook.model.dto.LoginForm;
+import org.example.cookbook.model.dto.AuthResponse;
 import org.example.cookbook.model.dto.RegisterForm;
 import org.example.cookbook.model.entity.UserEntity;
 import org.example.cookbook.repository.UserRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -14,9 +18,9 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public String registerUser(RegisterForm registerForm) {
+    public AuthResponse registerUser(RegisterForm registerForm) {
         if (this.userRepository.findUserByEmail(registerForm.getEmail()).isPresent()) {
-            throw new UserAlreadyExistsException("User with email (" + registerForm.getEmail() + ") already exists!");
+            return new AuthResponse("User with email (" + registerForm.getEmail() + ") already exists!", HttpStatus.CONFLICT);
         }
 
         UserEntity user = new UserEntity()
@@ -27,6 +31,16 @@ public class UserService {
 
         this.userRepository.save(user);
 
-        return "Account successfully created!";
+        return new AuthResponse("Account successfully created!", HttpStatus.CREATED);
+    }
+
+    public AuthResponse login(LoginForm loginForm) {
+        Optional<UserEntity> user = this.userRepository.findUserByEmail(loginForm.getEmail());
+
+        if (user.isPresent() && passwordEncoder.matches(loginForm.getPassword(), user.get().getPassword())) {
+            return new AuthResponse("Success", HttpStatus.OK);
+        }
+
+        return new AuthResponse("Fail", HttpStatus.UNAUTHORIZED);
     }
 }
