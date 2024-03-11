@@ -34,7 +34,7 @@ export function updateNav() {
         guestNav.forEach(li => li.style.display = "block");
         userMsg.textContent = "";
     }
-    else{
+    else {
         userNav.forEach(li => li.style.display = "block");
         guestNav.forEach(li => li.style.display = "none");
         userMsg.textContent = `Welcome, ${userData.firstName}`;
@@ -42,3 +42,4 @@ export function updateNav() {
 }
 
 updateNav();
+showHomePage();

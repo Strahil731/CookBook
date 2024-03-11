@@ -1,5 +1,6 @@
 import { updateNav } from "./app.js";
 import { showHomePage } from "./home.js";
+import { setUserData } from "./userHelper.js";
 
 export function showRegisterPage() {
     document.querySelectorAll("section").forEach(section => section.style.display = "none");
@@ -21,7 +22,7 @@ async function onRegister(event) {
         return alert("Invalid inputs!");
     }
 
-    const response = await fetch("http://localhost:8080/api/auth/register", {
+    const response = await fetch("https://register-form-user-default-rtdb.firebaseio.com/.json", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -31,6 +32,8 @@ async function onRegister(event) {
     const data = await response.json();
 
     console.log(data);
+
+    setUserData(data);
     updateNav();
     showHomePage();
 }
