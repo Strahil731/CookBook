@@ -1,9 +1,7 @@
 package org.example.cookbook.web.rest;
 
 import lombok.RequiredArgsConstructor;
-import org.example.cookbook.model.dto.AuthResponse;
-import org.example.cookbook.model.dto.LoginForm;
-import org.example.cookbook.model.dto.RegisterForm;
+import org.example.cookbook.model.dto.*;
 import org.example.cookbook.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,15 +17,15 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody RegisterForm registerForm) {
-        AuthResponse response = this.userService.registerUser(registerForm);
+        RegisterResponse response = this.userService.registerUser(registerForm);
 
         return new ResponseEntity<>(response.message(), response.status());
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginForm loginForm){
-        AuthResponse response = this.userService.login(loginForm);
+    public ResponseEntity<UserDto> login(@RequestBody LoginForm loginForm) {
+        LoginResponse response = this.userService.login(loginForm);
 
-        return new ResponseEntity<>(response.message(), response.status());
+        return new ResponseEntity<>(response.user(), response.status());
     }
 }

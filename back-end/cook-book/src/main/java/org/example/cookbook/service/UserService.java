@@ -1,11 +1,10 @@
 package org.example.cookbook.service;
 
 import lombok.RequiredArgsConstructor;
-import org.example.cookbook.model.dto.LoginForm;
-import org.example.cookbook.model.dto.AuthResponse;
-import org.example.cookbook.model.dto.RegisterForm;
+import org.example.cookbook.model.dto.*;
 import org.example.cookbook.model.entity.UserEntity;
 import org.example.cookbook.repository.UserRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -17,10 +16,12 @@ import java.util.Optional;
 public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final ModelMapper modelMapper;
 
-    public AuthResponse registerUser(RegisterForm registerForm) {
+
+    public RegisterResponse registerUser(RegisterForm registerForm) {
         if (this.userRepository.findUserByEmail(registerForm.getEmail()).isPresent()) {
-            return new AuthResponse("User with email (" + registerForm.getEmail() + ") already exists!", HttpStatus.CONFLICT);
+            return new RegisterResponse("User with email (" + registerForm.getEmail() + ") already exists!", HttpStatus.CONFLICT);
         }
 
         UserEntity user = new UserEntity()
@@ -31,16 +32,16 @@ public class UserService {
 
         this.userRepository.save(user);
 
-        return new AuthResponse("Account successfully created!", HttpStatus.CREATED);
+        return new RegisterResponse("Account successfully created!", HttpStatus.CREATED);
     }
 
-    public AuthResponse login(LoginForm loginForm) {
+    public LoginResponse login(LoginForm loginForm) {
         Optional<UserEntity> user = this.userRepository.findUserByEmail(loginForm.getEmail());
 
         if (user.isPresent() && passwordEncoder.matches(loginForm.getPassword(), user.get().getPassword())) {
-            return new AuthResponse("Success", HttpStatus.OK);
+            return new LoginResponse(modelMapper.map(user.get(), UserDto.class), HttpStatus.OK);
         }
 
-        return new AuthResponse("Fail", HttpStatus.UNAUTHORIZED);
+        return new LoginResponse(null, HttpStatus.UNAUTHORIZED);
     }
 }
