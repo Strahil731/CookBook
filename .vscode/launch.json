@@ -1,0 +1,29 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CookBookApplication",
+            "request": "launch",
+            "mainClass": "org.example.cookbook.CookBookApplication",
+            "projectName": "cook-book"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": " Program",
+            "program": "${file}",
+            "cwd": "${workspaceRoot}",
+            "outputCapture": "std"
+        },
+        {
+            "args": [
+                "-u",
+                "tdd",
+                "--timeout",
+                "999999",
+                "--colors",
+                "${file}"
+            ]
+        }
+    ]
+}
