@@ -31,12 +31,12 @@ body {
     border-radius: 15px;
 }
 
-.navigation a {
+.navigation p {
     font-size: 17px;
     color: #FFF;
 }
 
-.navigation a span {
+.navigation p span {
     font-size: 17px;
     color: #000;
 }
