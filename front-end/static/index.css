@@ -1,22 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
+
 body {
     background: #DCDCDC;
 }
 
 .navigation {
-    background-color: rgba(39, 183, 245, 0.69);
-    padding: 8px;
-    border: 1px solid #666;
-    font-family: 'Courier New', Courier, monospace;
-    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #1E90FF;
 }
 
-.navigation a {
-    margin: 10px;
-    text-decoration: none;
-    border: none;
-    padding: 7px;
+.navigation li {
+    float: left;
+}
+
+.navigation li a {
+    display: block;
     color: #FFF;
-    font-size: 15px;
+    text-align: center;
+    margin: 8px;
+    padding: 8px 10px;
+    text-decoration: none;
 }
 
 .navigation a:hover {
@@ -25,56 +31,110 @@ body {
     border-radius: 15px;
 }
 
-.navigation p {
+.navigation a {
     font-size: 17px;
     color: #FFF;
 }
 
-.navigation p span {
+.navigation a span {
     font-size: 17px;
     color: #000;
 }
 
+.navigation li.right {
+    float: right;
+}
+
 .reception {
-    margin: 20px;
-    background: #FFF;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-ul {
-    list-style-type: none;
-    width: 500px;
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    list-style: none;
+    margin-top: 20px;
+    margin-left: 10px;
+    padding: 0;
 }
 
-.reception h3 a {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 25px;
-    color: #000;
-    text-decoration: none;
+.cards_item {
+    display: flex;
+    padding: 1rem;
 }
 
-.reception h3 a:hover {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 25px;
-    color: #0000FF;
-    text-decoration: underline;
+.card_image {
+    height: calc(13*1.2rem);
+    padding: 1.2rem 1.2rem 0;
+    position: relative;
 }
 
-.reception li img {
-    float: left;
-    width: 240px;
-    height: auto;
-    margin: 0 15px 0 0;
+.card_image:before,
+.card_image:after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    left: 60%;
+    top: 0;
+    height: 45px;
+    background: #e6e6e6b8;
+    transform: rotate(45deg);
 }
 
-.reception li p {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+.card_image:after {
+    transform: rotate(-45deg);
+    top: auto;
+    bottom: -22px;
+    left: 40%;
+}
+
+.card_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cards_item {
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.25));
+}
+
+
+.card {
+    background-color: white;
+    border-radius: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding-left: 30px;
+    background: repeating-linear-gradient(#0000 0 calc(1.2rem - 1px), #66afe1 0 1.2rem) right bottom /100% 100%, linear-gradient(red 0 0) 30px 0/2px 100% #fff;
+    background-repeat: no-repeat;
+    line-height: 1.2rem;
+    -webkit-mask: radial-gradient(circle .8rem at 2px 50%, #0000 98%, #000)0 0/100% 2.4rem;
+}
+
+.card_content {
+    padding: 1.2rem;
+}
+
+h2.card_title,
+p {
+    margin: 1.2rem 0;
+}
+
+h2.card_title {
+    font-size: 1.3em;
+}
+
+body {
+    font-family: monospace;
+    background: #eee;
+}
+
+html {
     font-size: 15px;
 }
 
-.reception li {
-    padding: 10px;
-    overflow: auto;
-}
 
 
 
@@ -98,32 +158,28 @@ ul {
     margin-right: auto;
 }
 
-.login label {
-    font-size: 17px;
-}
-
-.login input[type="email"] {
-    margin-top: 7px;
-    margin-bottom: 10px;
-    padding: 5px;
-    border: 1px solid #000;
-    border-radius: 12px;
-}
-
+.login input[type="email"],
 .login input[type="password"] {
-    margin-top: 7px;
-    margin-bottom: 10px;
-    padding: 5px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
     border: 1px solid #000;
     border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.login input[type="checkbox"] {
+    margin-top: 15px;
 }
 
 .login input[type="submit"] {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 10px;
-    font-size: 18px;
-    width: 85%;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 1px solid #000;
+    border-radius: 17px;
+    cursor: pointer;
+    width: 100%;
     background: #1E90FF;
     color: #FFF;
 }
@@ -134,6 +190,13 @@ ul {
 }
 
 .login p {
+    font-size: 15px;
+    padding-bottom: 12px;
+    text-align: center;
+}
+
+.login p.right {
+    float: right;
     font-size: 15px;
     padding-bottom: 12px;
 }
@@ -167,40 +230,29 @@ ul {
     margin-right: auto;
 }
 
-.register label {
-    font-size: 17px;
-}
-
-.register input[type="email"] {
-    margin-top: 7px;
-    margin-bottom: 10px;
-    padding: 5px;
-    border: 1px solid #000;
-    border-radius: 12px;
-}
-
-.register input[type="text"] {
-    margin-top: 7px;
-    margin-bottom: 10px;
-    padding: 5px;
-    border: 1px solid #000;
-    border-radius: 12px;
-}
-
+.register input[type="email"],
+.register input[type="text"],
 .register input[type="password"] {
-    margin-top: 7px;
-    margin-bottom: 10px;
-    padding: 5px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
     border: 1px solid #000;
     border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.register input[type="checkbox"] {
+    margin-top: 15px;
 }
 
 .register input[type="submit"] {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 10px;
-    font-size: 18px;
-    width: 85%;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 1px solid #000;
+    border-radius: 17px;
+    cursor: pointer;
+    width: 100%;
     background: #1E90FF;
     color: #FFF;
 }
@@ -213,6 +265,7 @@ ul {
 .register p {
     font-size: 15px;
     padding-bottom: 12px;
+    text-align: center;
 }
 
 .register p a {
@@ -223,4 +276,70 @@ ul {
 .register p a:hover {
     color: #0000FF;
     text-decoration: underline;
+}
+
+.create {
+    background: #FFF;
+    width: 30%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.create h2 {
+    padding: 20px;
+    text-align: center;
+}
+
+.create .createForm {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.create input[type="url"],
+.create input[type="text"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #000;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.create input[type="submit"] {
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 1px solid #000;
+    border-radius: 17px;
+    cursor: pointer;
+    width: 100%;
+    background: #1E90FF;
+    color: #FFF;
+}
+
+.create input[type="submit"]:hover {
+    background: #ADFF2F;
+    color: #000;
+}
+
+footer {
+    text-align: center;
+    font-size: 30px;
+    color: #A9A9A9;
+}
+
+@media screen and (max-width: 600px) {
+
+    .navigation li.right,
+    .navigation li {
+        float: none;
+    }
+
+    .login,
+    .register,
+    .create {
+        border-radius: 0px;
+    }
 }
