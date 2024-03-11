@@ -26,7 +26,7 @@ function onNavigation(event) {
     routes[path]();
 }
 
-function updateNav() {
+export function updateNav() {
     const userData = getUserData();
 
     if (!userData) {

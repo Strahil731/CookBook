@@ -1,10 +1,12 @@
+import { updateNav } from "./app.js";
+import { showHomePage } from "./home.js";
+
 export function showRegisterPage() {
     document.querySelectorAll("section").forEach(section => section.style.display = "none");
     document.querySelector("section.register").style.display = "block";
 }
 
 document.getElementById("registerForm").addEventListener("submit", onRegister);
-const baseURL = "http://localhost:8080/"
 
 async function onRegister(event) {
     event.preventDefault();
@@ -19,7 +21,7 @@ async function onRegister(event) {
         return alert("Invalid inputs!");
     }
 
-    const response = await fetch(baseURL + "api/auth/register", {
+    const response = await fetch("http://localhost:8080/api/auth/register", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -29,4 +31,6 @@ async function onRegister(event) {
     const data = await response.json();
 
     console.log(data);
+    updateNav();
+    showHomePage();
 }
