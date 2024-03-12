@@ -22,7 +22,7 @@ async function onRegister(event) {
         return alert("Invalid inputs!");
     }
 
-    const response = await fetch("https://register-form-user-default-rtdb.firebaseio.com/.json", {
+    const response = await fetch("http://localhost:8080/api/auth/register", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
