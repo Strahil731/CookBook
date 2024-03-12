@@ -29,11 +29,11 @@ async function onRegister(event) {
         },
         body: JSON.stringify({ email, firstName, lastName, password })
     });
-    const data = await response.json();
-
-    console.log(data);
-
-    setUserData(data);
+    // const data = await response.json();
+    //
+    // console.log(data);
+    //
+    // setUserData(data);
     updateNav();
     showHomePage();
 }
