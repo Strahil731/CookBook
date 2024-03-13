@@ -1,18 +1,17 @@
+// Съхраняване на данните в userData свойството
 function setUserData(userData) {
     sessionStorage.setItem("userData", JSON.stringify(userData));
 }
 
+// Взимане на данните
 function getUserData() {
     return JSON.parse(sessionStorage.getItem("userData"));
 }
 
-function getUserTocken() {
+// Взимане на userToken
+function getUserToken() {
     const userData = getUserData();
     return userData?.accessToken;
 }
 
-export {
-    setUserData,
-    getUserData,
-    getUserTocken
-}
+export { setUserData, getUserData, getUserToken }

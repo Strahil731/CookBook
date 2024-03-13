@@ -21,7 +21,7 @@ body {
     color: #FFF;
     text-align: center;
     margin: 8px;
-    padding: 8px 10px;
+    padding: 12px 10px;
     text-decoration: none;
 }
 
@@ -306,6 +306,15 @@ html {
     border: 1px solid #000;
     border-radius: 12px;
     box-sizing: border-box;
+}
+
+.create textarea[type="text"]{
+    width: 100%;
+    padding: 10px 1px;
+    margin: 8px 0;
+    border: 1px solid #000;
+    border-radius: 4px;
+    
 }
 
 .create input[type="submit"] {
