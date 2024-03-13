@@ -24,7 +24,11 @@ const routes = {
     "/login": showLoginPage,
     "/register": showRegisterPage,
     "/create": () => console.error("create"),
-    "/logout": () => console.error("logout"),
+    "/logout": async () => {
+        await sessionStorage.removeItem("userData");
+        updateNavigate();
+        showHomePage();
+    },
     "*": () => console.error("404 Page not found!")
 };
 
