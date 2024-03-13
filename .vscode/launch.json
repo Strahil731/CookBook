@@ -5,7 +5,13 @@
             "name": "CookBookApplication",
             "request": "launch",
             "mainClass": "org.example.cookbook.CookBookApplication",
-            "projectName": "cook-book"
+            "projectName": "cook-book",
+            "env": {
+                "DB_HOST": "dpg-cneqkp6g1b2c73cvhehg-a.frankfurt-postgres.render.com",
+                "DB_NAME": "cook_book",
+                "DB_PASSWORD": "4SqZJfITm3Y6Svy43zc8VxiVZspTDWEN",
+                "DB_USERNAME": "kalin"
+            }
         },
         {
             "type": "node",

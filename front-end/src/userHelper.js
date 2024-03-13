@@ -8,7 +8,7 @@ function getUserData() {
 
 function getUserTocken() {
     const userData = getUserData();
-    return userData?.accessTocken;
+    return userData?.accessToken;
 }
 
 export {

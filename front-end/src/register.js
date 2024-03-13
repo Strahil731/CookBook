@@ -1,5 +1,4 @@
-import { updateNav } from "./app.js";
-import { showHomePage } from "./home.js";
+import { showLoginPage } from "./login.js";
 import { setUserData } from "./userHelper.js";
 
 export function showRegisterPage() {
@@ -29,11 +28,10 @@ async function onRegister(event) {
         },
         body: JSON.stringify({ email, firstName, lastName, password })
     });
-    // const data = await response.json();
-    //
-    // console.log(data);
-    //
-    // setUserData(data);
-    updateNav();
-    showHomePage();
+    const data = await response.json();
+    
+    console.log(data);
+    
+    setUserData(data);
+    showLoginPage();
 }
