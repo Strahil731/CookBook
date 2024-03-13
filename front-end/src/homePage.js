@@ -23,6 +23,11 @@ async function showRecepi() {
 
     // Обхождане на резултата
     for (let el of recipe) {
+        let ingredients = '';
+        for(let product of el.ingredients){
+            ingredients+=`<li>${product.name} - ${product.quantity}</li>`
+        }
+
         li.innerHTML = `
         <div class="card">
             <div class="card_image">
@@ -33,7 +38,7 @@ async function showRecepi() {
                     <div class="card_text">
                         <p>Product:
                             <ul>
-                            ${li}
+                                ${ingredients}
                             </ul>
                         </p>
                         <p>${el.preparation}</p>
@@ -41,9 +46,7 @@ async function showRecepi() {
                 </div>
             </div>
         `
-        for(let product of el.ingredients){
-            li.innerHTML += `${product.name} - ${product.quantity}`
-        }
+
     };
 
     ul.appendChild(li);
