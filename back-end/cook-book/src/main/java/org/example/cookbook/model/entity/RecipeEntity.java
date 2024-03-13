@@ -13,10 +13,10 @@ public class RecipeEntity extends BaseEntity {
     @Column
     private String preparation;
 
-    @Column
+    @Column(name = "image_url")
     private String imageUrl;
 
-    @OneToMany(fetch = FetchType.EAGER, targetEntity = IngredientEntity.class)
+    @OneToMany(fetch = FetchType.EAGER, targetEntity = IngredientEntity.class, mappedBy = "recipeId")
     private List<IngredientEntity> ingredients;
 
     public RecipeEntity() {

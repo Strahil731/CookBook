@@ -17,6 +17,7 @@ public class IngredientEntity extends BaseEntity {
     @Column
     private String quantity;
 
-    @OneToOne(fetch = FetchType.EAGER, targetEntity = RecipeEntity.class)
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = RecipeEntity.class)
+    @Column(name = "recipe_id")
     private RecipeEntity recipeId;
 }
