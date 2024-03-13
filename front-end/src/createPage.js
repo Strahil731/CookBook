@@ -13,13 +13,13 @@ async function onCreate(event) {
     event.preventDefault();
 
     // Взимане на стойността на полетата
-    const imageURL = document.getElementById("imgURL").src;
+    const imageUrl = document.getElementById("imgURL").value;
     const title = document.getElementById("createTitle").value;
-    const products = document.getElementById("createProduction").value;
-    const methodsPreparation = document.getElementById("createDescription").value;
+    const ingredients = document.getElementById("createProduction").value;
+    const preparation = document.getElementById("createDescription").value;
 
     // Проверка дали полетата са празни
-    if (!imageURL || !title || !products || !methodsPreparation) {
+    if (!imageUrl || !title || !ingredients || !preparation) {
         return alert("Error input");
     }
 
@@ -29,8 +29,9 @@ async function onCreate(event) {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ imageURL, title, products, methodsPreparation })
+        body: JSON.stringify({ imageUrl, title, ingredients, preparation })
     });
     const data = await response.json();
+    console.log(data);
     createForm.reset();
 }
