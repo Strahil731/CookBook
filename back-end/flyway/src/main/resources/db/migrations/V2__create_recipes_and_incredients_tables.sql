@@ -3,7 +3,7 @@ CREATE TABLE recipes
     id          SERIAL PRIMARY KEY,
     title       VARCHAR(55) NOT NULL,
     preparation TEXT,
-    imageUrl    VARCHAR(255)
+    image_url   VARCHAR(255)
 );
 
 CREATE TABLE ingredients
