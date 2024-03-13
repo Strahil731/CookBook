@@ -21,7 +21,7 @@ public class UserService {
 
     public RegisterResponse registerUser(RegisterForm registerForm) {
         if (this.userRepository.findUserByEmail(registerForm.getEmail()).isPresent()) {
-            return new RegisterResponse("User with email (" + registerForm.getEmail() + ") already exists!", HttpStatus.CONFLICT);
+            return new RegisterResponse(null, HttpStatus.CONFLICT);
         }
 
         UserEntity user = new UserEntity()
@@ -30,9 +30,9 @@ public class UserService {
                 .setLastName(registerForm.getLastName())
                 .setPassword(passwordEncoder.encode(registerForm.getPassword()));
 
-        this.userRepository.save(user);
+        UserDto dto = modelMapper.map(this.userRepository.save(user), UserDto.class);
 
-        return new RegisterResponse("Account successfully created!", HttpStatus.CREATED);
+        return new RegisterResponse(dto, HttpStatus.CREATED);
     }
 
     public LoginResponse login(LoginForm loginForm) {
