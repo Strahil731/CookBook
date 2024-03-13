@@ -152,19 +152,23 @@
         </section>
 
         <section class="create" id="createView">
-            <h2>Create reception</h2>
-            <form class="createForm">
-                <input type="url" id="imgURL" placeholder="Image URL" />
-                <input type="text" id="createTitle" placeholder="Reception Title" />
-                <input type="text" id="createProduction" placeholder="Production" />
-                <textarea type="text" id="createDescription" placeholder="Method of preparation"></textarea>
+            <h2>Create recipe</h2>
+            <form class="createForm" id="createForm">
+                <label>Image URL</label>
+                <input type="url" id="imgURL" />
+                <label>Recipe Title</label>
+                <input type="text" id="createTitle" />
+                <label>Products -> <b>one per line</b> / Example: <b>Eggs-2br</b></label>
+                <textarea type="text" id="createProduction"></textarea>
+                <label>Method of preparation:</label>
+                <textarea type="text" id="createDescription"></textarea>
                 <input type="submit" id="createBtn" value="Create" />
             </form>
         </section>
     </main>
 
     <footer>
-        <p>@Favorite reception for you</p>
+        <p>@Favorite recipe for you</p>
     </footer>
 </body>
 

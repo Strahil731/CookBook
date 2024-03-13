@@ -1,4 +1,5 @@
 // Импортиране на експортирани функции от съответните файлове
+import { showCreatePage } from "./src/createPage.js";
 import { showHomePage } from "./src/homePage.js";
 import { showLoginPage } from "./src/loginPage.js";
 import { showRegisterPage } from "./src/registerPage.js";
@@ -23,7 +24,7 @@ const routes = {
     "/home": showHomePage,
     "/login": showLoginPage,
     "/register": showRegisterPage,
-    "/create": () => console.error("create"),
+    "/create": showCreatePage,
     "/logout": async () => {
         await sessionStorage.removeItem("userData");
         updateNavigate();
