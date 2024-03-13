@@ -16,10 +16,10 @@ public class AuthController {
     private final UserService userService;
 
     @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestBody RegisterForm registerForm) {
+    public ResponseEntity<UserDto> registerUser(@RequestBody RegisterForm registerForm) {
         RegisterResponse response = this.userService.registerUser(registerForm);
 
-        return new ResponseEntity<>(response.message(), response.status());
+        return new ResponseEntity<>(response.user(), response.status());
     }
 
     @PostMapping("/login")
