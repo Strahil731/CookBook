@@ -4,12 +4,11 @@ export function showHomePage() {
     const homeView = document.getElementById("homeView").style.display = "block";
 }
 
-// Взимане на parent от HTML
-const ul = document.getElementById("cards");
+const ul = document.createElement("ul");
+ul.className = "cards";
 
 // Взимане на данни от сървъра и показване в homePage
 async function showRecepi() {
-    ul.innerHTML = "";
 
     // Взимане на данните
     const response = await fetch("http://localhost:8080/api/recipe/all", {
@@ -17,23 +16,23 @@ async function showRecepi() {
     });
     const recipe = await response.json();
 
-    //Създаване на дете
-    const li = document.createElement("li");
-    li.className = "cards_item";
+
 
     // Обхождане на резултата
     for (let el of recipe) {
         let ingredients = '';
-        for(let product of el.ingredients){
-            ingredients+=`<li>${product.name} - ${product.quantity}</li>`
+        for (let product of el.ingredients) {
+            ingredients += `<li>${product.name} - ${product.quantity}</li>`
         }
 
-        li.innerHTML = `
-        <div class="card">
-            <div class="card_image">
-                <img src="${el.imageUrl}" alt="" />
-            </div>
-            <div class="card_content">
+        ul.innerHTML += `
+
+                <li class="cards_item">
+                    <div class="card">
+                        <div class="card_image">
+                            <img src="${el.imageUrl}" alt="" />
+                        </div>
+                        <div class="card_content">
                 <h2 class="card_title">${el.title}</h2>
                     <div class="card_text">
                         <p>Product:
@@ -45,12 +44,11 @@ async function showRecepi() {
                     </div>
                 </div>
             </div>
+                    </div>
+                </li>
         `
-
+        homeView.appendChild(ul);
     };
-
-    ul.appendChild(li);
-    homeView.appendChild(ul);
 }
 
 showRecepi();

@@ -1,3 +1,5 @@
+import { showHomePage } from "./homePage.js";
+
 // Създаване на функцията за create секцията
 export function showCreatePage() {
     document.querySelectorAll("section").forEach(section => section.style.display = "none");
@@ -33,5 +35,6 @@ async function onCreate(event) {
     });
     const data = await response.json();
     console.log(data);
+    showHomePage();
     createForm.reset();
 }
