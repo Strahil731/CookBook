@@ -1,8 +1,6 @@
 package org.example.cookbook.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,4 +16,9 @@ public class IngredientEntity extends BaseEntity {
 
     @Column
     private String quantity;
+
+    @OneToOne(fetch = FetchType.EAGER, targetEntity = RecipeEntity.class)
+    private RecipeEntity recipeId;
+
+
 }
