@@ -1,7 +1,7 @@
 package org.example.cookbook.service;
 
 import lombok.RequiredArgsConstructor;
-import org.example.cookbook.model.dto.*;
+import org.example.cookbook.model.dto.user.*;
 import org.example.cookbook.model.entity.UserEntity;
 import org.example.cookbook.repository.UserRepository;
 import org.modelmapper.ModelMapper;

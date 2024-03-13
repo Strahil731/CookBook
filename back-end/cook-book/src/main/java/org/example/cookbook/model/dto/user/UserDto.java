@@ -1,4 +1,4 @@
-package org.example.cookbook.model.dto;
+package org.example.cookbook.model.dto.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

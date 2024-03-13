@@ -1,8 +1,8 @@
 package org.example.cookbook.service;
 
 import lombok.RequiredArgsConstructor;
-import org.example.cookbook.model.dto.RecipeCreateForm;
-import org.example.cookbook.model.dto.RecipeDto;
+import org.example.cookbook.model.dto.recipe.RecipeCreateForm;
+import org.example.cookbook.model.dto.recipe.RecipeDto;
 import org.example.cookbook.model.entity.IngredientEntity;
 import org.example.cookbook.model.entity.RecipeEntity;
 import org.example.cookbook.repository.IngredientRepository;

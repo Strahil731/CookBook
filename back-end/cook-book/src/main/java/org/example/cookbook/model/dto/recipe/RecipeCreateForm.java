@@ -1,4 +1,4 @@
-package org.example.cookbook.model.dto;
+package org.example.cookbook.model.dto.recipe;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

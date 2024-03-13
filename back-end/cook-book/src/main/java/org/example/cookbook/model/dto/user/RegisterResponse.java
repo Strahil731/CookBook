@@ -1,4 +1,4 @@
-package org.example.cookbook.model.dto;
+package org.example.cookbook.model.dto.user;
 
 import org.springframework.http.HttpStatus;
 

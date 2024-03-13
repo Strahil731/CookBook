@@ -1,7 +1,7 @@
 package org.example.cookbook.web.rest;
 
 import lombok.RequiredArgsConstructor;
-import org.example.cookbook.model.dto.*;
+import org.example.cookbook.model.dto.user.*;
 import org.example.cookbook.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

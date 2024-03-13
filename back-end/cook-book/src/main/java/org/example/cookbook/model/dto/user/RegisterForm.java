@@ -1,4 +1,4 @@
-package org.example.cookbook.model.dto;
+package org.example.cookbook.model.dto.user;
 
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;

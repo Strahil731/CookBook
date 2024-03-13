@@ -1,8 +1,8 @@
 package org.example.cookbook.web.rest;
 
 import lombok.RequiredArgsConstructor;
-import org.example.cookbook.model.dto.RecipeCreateForm;
-import org.example.cookbook.model.dto.RecipeDto;
+import org.example.cookbook.model.dto.recipe.RecipeCreateForm;
+import org.example.cookbook.model.dto.recipe.RecipeDto;
 import org.example.cookbook.service.RecipeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
