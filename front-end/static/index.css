@@ -280,7 +280,8 @@ html {
 
 .create {
     background: #FFF;
-    width: 30%;
+    width: 50%;
+    padding-bottom: 30px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -297,11 +298,18 @@ html {
     margin-right: auto;
 }
 
+.create label{
+    font-size: 17px;
+    margin-left: -60px;
+}
+
 .create input[type="url"],
 .create input[type="text"] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
+    width: 140%;
+    padding: 20px 20px;
+    margin: 8px;
+    margin-left: -65px;
+    margin-bottom: 30px;
     display: inline-block;
     border: 1px solid #000;
     border-radius: 12px;
@@ -309,9 +317,11 @@ html {
 }
 
 .create textarea[type="text"]{
-    width: 100%;
-    padding: 10px 1px;
-    margin: 8px 0;
+    width: 120%;
+    padding: 50px 44px;
+    margin: 8px;
+    margin-left: -65px;
+    margin-bottom: 20px;
     border: 1px solid #000;
     border-radius: 4px;
     
