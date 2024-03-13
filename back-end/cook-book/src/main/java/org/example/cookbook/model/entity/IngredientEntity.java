@@ -19,6 +19,4 @@ public class IngredientEntity extends BaseEntity {
 
     @OneToOne(fetch = FetchType.EAGER, targetEntity = RecipeEntity.class)
     private RecipeEntity recipeId;
-
-
 }

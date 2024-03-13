@@ -29,17 +29,20 @@ public class RecipeService {
     }
 
     public RecipeDto createRecipe(RecipeCreateForm recipeCreateForm) {
-        RecipeEntity recipe = RecipeEntity.builder()
-                .title(recipeCreateForm.getTitle())
-                .preparation(recipeCreateForm.getPreparation())
-                .imageUrl(recipeCreateForm.getImageUrl())
-                .build();
+        RecipeEntity recipe = new RecipeEntity()
+                .setTitle(recipeCreateForm.getTitle())
+                .setPreparation(recipeCreateForm.getPreparation())
+                .setImageUrl(recipeCreateForm.getImageUrl());
 
         recipe = this.recipeRepository.save(recipe);
 
         List<IngredientEntity> ingredients = extractIngredients(recipeCreateForm, recipe);
 
-        this.ingredientRepository.saveAll(ingredients);
+        ingredients = this.ingredientRepository.saveAll(ingredients);
+
+        recipe.setIngredients(ingredients);
+
+        recipe = this.recipeRepository.save(recipe);
 
         return modelMapper.map(recipe, RecipeDto.class);
     }
