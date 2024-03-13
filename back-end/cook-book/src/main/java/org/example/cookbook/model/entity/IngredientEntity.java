@@ -18,6 +18,6 @@ public class IngredientEntity extends BaseEntity {
     private String quantity;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = RecipeEntity.class)
-    @Column(name = "recipe_id")
+    @JoinColumn(name = "recipe_id")
     private RecipeEntity recipeId;
 }
