@@ -47,7 +47,7 @@ export function updateNavigate() {
     if (userData) {
         userNav.forEach(li => li.style.display = "block");
         guestNav.forEach(li => li.style.display = "none");
-        userMSG.textContent = `Welcome, ${userData.firstName}${userData.lastName}`;
+        userMSG.textContent = `Welcome, ${userData.firstName} ${userData.lastName}!`;
     }
     else {
         userNav.forEach(li => li.style.display = "none");
