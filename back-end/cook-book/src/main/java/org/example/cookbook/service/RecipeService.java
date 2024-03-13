@@ -38,11 +38,7 @@ public class RecipeService {
 
         List<IngredientEntity> ingredients = extractIngredients(recipeCreateForm, recipe);
 
-        ingredients = this.ingredientRepository.saveAll(ingredients);
-
-        recipe.setIngredients(ingredients);
-
-        recipe = this.recipeRepository.save(recipe);
+        this.ingredientRepository.saveAll(ingredients);
 
         return modelMapper.map(recipe, RecipeDto.class);
     }
