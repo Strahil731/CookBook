@@ -19,6 +19,10 @@ public class RecipeEntity extends BaseEntity {
     @OneToMany(fetch = FetchType.EAGER, targetEntity = IngredientEntity.class, mappedBy = "recipeId")
     private List<IngredientEntity> ingredients;
 
+    @ManyToOne(targetEntity = UserEntity.class)
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
+
     public RecipeEntity() {
 
     }

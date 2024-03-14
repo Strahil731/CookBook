@@ -18,4 +18,6 @@ public class RecipeDto {
     private String imageUrl;
 
     private List<IngredientDto> ingredients;
+
+    private Long userId;
 }

@@ -13,4 +13,6 @@ public class RecipeCreateForm {
     private String imageUrl;
 
     private String ingredients;
+
+    private Long userId;
 }
