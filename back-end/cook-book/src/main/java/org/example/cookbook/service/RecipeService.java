@@ -5,11 +5,14 @@ import org.example.cookbook.model.dto.recipe.RecipeCreateForm;
 import org.example.cookbook.model.dto.recipe.RecipeDto;
 import org.example.cookbook.model.entity.IngredientEntity;
 import org.example.cookbook.model.entity.RecipeEntity;
+import org.example.cookbook.model.entity.UserEntity;
 import org.example.cookbook.repository.IngredientRepository;
 import org.example.cookbook.repository.RecipeRepository;
+import org.example.cookbook.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import javax.naming.directory.InvalidAttributesException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +20,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RecipeService {
     private final RecipeRepository recipeRepository;
+    private final UserRepository userRepository;
     private final ModelMapper modelMapper;
     private final IngredientRepository ingredientRepository;
 
@@ -29,10 +33,14 @@ public class RecipeService {
     }
 
     public RecipeDto createRecipe(RecipeCreateForm recipeCreateForm) {
+        UserEntity user = this.userRepository.findById(recipeCreateForm.getUserId())
+                .orElseThrow(IllegalArgumentException::new);
+
         RecipeEntity recipe = new RecipeEntity()
                 .setTitle(recipeCreateForm.getTitle())
                 .setPreparation(recipeCreateForm.getPreparation())
-                .setImageUrl(recipeCreateForm.getImageUrl());
+                .setImageUrl(recipeCreateForm.getImageUrl())
+                .setUser(user);
 
         recipe = this.recipeRepository.save(recipe);
 
