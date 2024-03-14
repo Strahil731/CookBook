@@ -62,4 +62,13 @@ public class RecipeEntity extends BaseEntity {
         this.ingredients = ingredients;
         return this;
     }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public RecipeEntity setUser(UserEntity user) {
+        this.user = user;
+        return this;
+    }
 }
