@@ -26,14 +26,13 @@ async function showRecepi() {
         }
 
         ul.innerHTML += `
-
-                <li class="cards_item">
-                    <div class="card">
-                        <div class="card_image">
-                            <img src="${el.imageUrl}" alt="" />
-                        </div>
-                        <div class="card_content">
-                <h2 class="card_title">${el.title}</h2>
+        <li class="cards_item">
+            <div class="card">
+                <div class="card_image">
+                    <img src="${el.imageUrl}" alt="" />
+                </div>
+                <div class="card_content">
+                    <h2 class="card_title">${el.title}</h2>
                     <div class="card_text">
                         <p>Product:
                             <ul>
@@ -44,8 +43,7 @@ async function showRecepi() {
                     </div>
                 </div>
             </div>
-                    </div>
-                </li>
+        </li>
         `
         homeView.appendChild(ul);
     };
