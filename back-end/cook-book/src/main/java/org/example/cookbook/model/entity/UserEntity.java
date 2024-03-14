@@ -89,4 +89,13 @@ public class UserEntity {
         this.createdAt = createdAt;
         return this;
     }
+
+    public List<RecipeEntity> getRecipes() {
+        return recipes;
+    }
+
+    public UserEntity setRecipes(List<RecipeEntity> recipes) {
+        this.recipes = recipes;
+        return this;
+    }
 }
