@@ -1,10 +1,12 @@
 package org.example.cookbook.model.dto.recipe;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class RecipeCreateForm {
     private String title;
 
