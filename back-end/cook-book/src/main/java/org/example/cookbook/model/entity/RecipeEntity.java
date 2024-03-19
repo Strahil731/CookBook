@@ -27,6 +27,14 @@ public class RecipeEntity extends BaseEntity {
 
     }
 
+    public RecipeEntity(String title, String preparation, String imageUrl, List<IngredientEntity> ingredients, UserEntity user) {
+        this.title = title;
+        this.preparation = preparation;
+        this.imageUrl = imageUrl;
+        this.ingredients = ingredients;
+        this.user = user;
+    }
+
     public String getTitle() {
         return title;
     }
