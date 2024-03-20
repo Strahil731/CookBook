@@ -1,4 +1,5 @@
-import { showHomePage } from "./homePage.js";
+import {showHomePage} from "./homePage.js";
+import {getUserId} from "./userHelper.js";
 
 // Създаване на функцията за create секцията
 export function showCreatePage() {
@@ -19,6 +20,7 @@ async function onCreate(event) {
     const title = document.getElementById("createTitle").value;
     const ingredients = document.getElementById("createProduction").value;
     const preparation = document.getElementById("createDescription").value;
+    const userId = getUserId();
 
     // Проверка дали полетата са празни
     if (!imageUrl || !title || !ingredients || !preparation) {
@@ -31,7 +33,7 @@ async function onCreate(event) {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ imageUrl, title, ingredients, preparation })
+        body: JSON.stringify({userId, imageUrl, title, ingredients, preparation})
     });
     const data = await response.json();
     console.log(data);

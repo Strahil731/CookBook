@@ -14,4 +14,10 @@ function getUserToken() {
     return userData?.accessToken;
 }
 
-export { setUserData, getUserData, getUserToken }
+function getUserId(){
+    const userData = getUserData();
+
+    return userData?.id;
+}
+
+export { setUserData, getUserData, getUserToken, getUserId }
