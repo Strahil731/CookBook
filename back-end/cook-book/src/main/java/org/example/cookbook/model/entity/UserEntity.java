@@ -9,11 +9,7 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 @AllArgsConstructor
-public class UserEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class UserEntity extends BaseEntity {
     @Column(name = "first_name")
     private String firstName;
 
@@ -34,15 +30,6 @@ public class UserEntity {
 
     public UserEntity() {
         this.createdAt = LocalDateTime.now();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public UserEntity setId(Long id) {
-        this.id = id;
-        return this;
     }
 
     public String getFirstName() {
