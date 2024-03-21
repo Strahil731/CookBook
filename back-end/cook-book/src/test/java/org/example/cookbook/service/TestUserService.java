@@ -1,6 +1,9 @@
 package org.example.cookbook.service;
 
+import org.example.cookbook.model.dto.user.LoginForm;
+import org.example.cookbook.model.dto.user.LoginResponse;
 import org.example.cookbook.model.dto.user.RegisterForm;
+import org.example.cookbook.model.dto.user.UserDto;
 import org.example.cookbook.model.entity.UserEntity;
 import org.example.cookbook.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,7 +14,10 @@ import org.mockito.Captor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
@@ -58,5 +64,27 @@ public class TestUserService {
         assertEquals("Ivanov", user.getLastName());
         assertEquals("ivan@abv.bg", user.getEmail());
 
+    }
+
+    @Test
+    public void loginTest() {
+        final String firstName = "Ivan";
+        final String lastName = "Ivanov";
+        final String email = "ivan@abv.bg";
+        final String password = "pass";
+
+        LoginForm loginForm = new LoginForm(email, password);
+        when(userRepository.findUserByEmail(email)).thenReturn(Optional.of(new UserEntity(firstName, lastName,
+                email,
+                password,
+                null,
+                null)));
+        when(passwordEncoder.matches(password, password)).thenReturn(true);
+        when(modelMapper.map(new UserEntity(), UserDto.class)).thenReturn(new UserDto(1L, firstName, lastName, email));
+
+        LoginResponse loginResponse = this.userService.login(loginForm);
+
+        assertEquals(loginResponse.status(), HttpStatus.OK);
+        assertEquals(email, loginResponse.user().getEmail());
     }
 }
