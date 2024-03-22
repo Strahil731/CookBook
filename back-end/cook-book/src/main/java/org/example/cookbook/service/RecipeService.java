@@ -10,6 +10,8 @@ import org.example.cookbook.repository.IngredientRepository;
 import org.example.cookbook.repository.RecipeRepository;
 import org.example.cookbook.repository.UserRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ public class RecipeService {
     private final IngredientRepository ingredientRepository;
 
 
+    @Cacheable(cacheNames = "recipes")
     public List<RecipeDto> getAllRecipes() {
         return this.recipeRepository.findAll()
                 .stream()
@@ -46,6 +49,7 @@ public class RecipeService {
         List<IngredientEntity> ingredients = extractIngredients(recipeCreateForm, recipe);
 
         this.ingredientRepository.saveAll(ingredients);
+        refreshRecipes();
 
         return modelMapper.map(recipe, RecipeDto.class);
     }
@@ -61,5 +65,10 @@ public class RecipeService {
         }
 
         return ingredients;
+    }
+
+    @CacheEvict(cacheNames = "recipes", allEntries = true)
+    public void refreshRecipes(){
+
     }
 }
