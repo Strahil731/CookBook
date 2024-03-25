@@ -22,6 +22,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 public class TestAuthController {
+    final String firstName = "Ivan";
+    final String lastName = "Ivanov";
+    final String email = "ivan@abv.bg";
+    final String password = "123";
+
+    final LoginForm loginForm = new LoginForm(email, password);
+
+    final UserDto user = new UserDto(1L, firstName, lastName, email);
+
+    final RegisterForm registerForm = new RegisterForm(firstName, lastName, email, password);
+
     @MockBean
     private UserService userService;
 
@@ -30,12 +41,6 @@ public class TestAuthController {
 
     @Test
     public void successfulLoginTest() throws Exception {
-        final String email = "ivan@abv.bg";
-
-        final UserDto user = new UserDto(1L, "Ivan", "Ivanov", email);
-
-        final LoginForm loginForm = new LoginForm(email, "123");
-
         final String requestJson = new ObjectMapper().writeValueAsString(loginForm);
 
         when(userService.login(any())).thenReturn(new LoginResponse(user, HttpStatus.OK));
@@ -48,18 +53,20 @@ public class TestAuthController {
                 .andExpect(jsonPath("$.email", is(email)));
     }
 
+    @Test
+    public void failedLoginTest() throws Exception {
+        when(userService.login(any())).thenReturn(new LoginResponse(null, HttpStatus.UNAUTHORIZED));
 
+        final String json = new ObjectMapper().writeValueAsString(loginForm);
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/auth/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(json))
+                .andExpect(status().isUnauthorized());
+    }
 
     @Test
     public void registerUserTest() throws Exception {
-        final String firstName = "Ivan";
-        final String lastName = "Ivanov";
-        final String email = "ivan@abv.bg";
-        final String password = "123";
-
-        final RegisterForm registerForm = new RegisterForm(firstName, lastName, email, password);
-        final UserDto user = new UserDto(1L, firstName, lastName, email);
-
         final RegisterResponse regResponse = new RegisterResponse(user, HttpStatus.CREATED);
 
         when(userService.registerUser(any())).thenReturn(regResponse);
