@@ -1,9 +1,7 @@
 package org.example.cookbook.web.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.cookbook.model.dto.user.LoginForm;
-import org.example.cookbook.model.dto.user.LoginResponse;
-import org.example.cookbook.model.dto.user.UserDto;
+import org.example.cookbook.model.dto.user.*;
 import org.example.cookbook.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +45,32 @@ public class TestAuthController {
                         .content(requestJson))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(1)))
+                .andExpect(jsonPath("$.email", is(email)));
+    }
+
+    @Test
+    public void registerUserTest() throws Exception {
+        final String firstName = "Ivan";
+        final String lastName = "Ivanov";
+        final String email = "ivan@abv.bg";
+        final String password = "123";
+
+        final RegisterForm registerForm = new RegisterForm(firstName, lastName, email, password);
+        final UserDto user = new UserDto(1L, firstName, lastName, email);
+
+        final RegisterResponse regResponse = new RegisterResponse(user, HttpStatus.CREATED);
+
+        when(userService.registerUser(any())).thenReturn(regResponse);
+
+        final String json = new ObjectMapper().writeValueAsString(registerForm);
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/auth/register")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(json))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.id", is(1)))
+                .andExpect(jsonPath("$.firstName", is(firstName)))
+                .andExpect(jsonPath("$.lastName", is(lastName)))
                 .andExpect(jsonPath("$.email", is(email)));
     }
 }
