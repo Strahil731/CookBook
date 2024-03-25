@@ -82,4 +82,16 @@ public class TestAuthController {
                 .andExpect(jsonPath("$.lastName", is(lastName)))
                 .andExpect(jsonPath("$.email", is(email)));
     }
+
+    @Test
+    public void failedRegistrationTest() throws Exception {
+        when(userService.registerUser(any())).thenReturn(new RegisterResponse(null, HttpStatus.CONFLICT));
+
+        String json = new ObjectMapper().writeValueAsString(registerForm);
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/auth/register")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(json))
+                .andExpect(status().isConflict());
+    }
 }
