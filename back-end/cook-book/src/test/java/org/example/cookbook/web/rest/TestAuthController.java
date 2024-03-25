@@ -29,7 +29,7 @@ public class TestAuthController {
     private MockMvc mockMvc;
 
     @Test
-    public void loginTest() throws Exception {
+    public void successfulLoginTest() throws Exception {
         final String email = "ivan@abv.bg";
 
         final UserDto user = new UserDto(1L, "Ivan", "Ivanov", email);
@@ -47,6 +47,8 @@ public class TestAuthController {
                 .andExpect(jsonPath("$.id", is(1)))
                 .andExpect(jsonPath("$.email", is(email)));
     }
+
+
 
     @Test
     public void registerUserTest() throws Exception {
