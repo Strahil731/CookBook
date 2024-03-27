@@ -9,15 +9,15 @@ function getUserData() {
 }
 
 // Взимане на userToken
-function getUserToken() {
-    const userData = getUserData();
-    return userData?.accessToken;
-}
+// function getUserToken() {
+//     const userData = getUserData();
+//     return userData?.accessToken;
+// }
 
-function getUserId(){
+function getUserId() {
     const userData = getUserData();
 
     return userData?.id;
 }
 
-export { setUserData, getUserData, getUserToken, getUserId }
+export {setUserData, getUserData, getUserId}
