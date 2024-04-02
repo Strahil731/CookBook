@@ -65,7 +65,8 @@ public class RecipeService {
         RecipeEntity recipe = this.recipeRepository.findById(id).orElse(null);
         recipe.setTitle(updatedRecipe.getTitle())
                 .setPreparation(updatedRecipe.getPreparation())
-                .setImageUrl(updatedRecipe.getImageUrl());
+                .setImageUrl(updatedRecipe.getImageUrl())
+                .setIngredients(null);
 
         recipe = this.recipeRepository.save(recipe);
 
