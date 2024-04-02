@@ -13,6 +13,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +60,7 @@ public class RecipeService {
                 .orElse(null);
     }
 
+    @Transactional
     public void deleteRecipeById(Long id) {
         this.recipeRepository.deleteById(id);
     }
