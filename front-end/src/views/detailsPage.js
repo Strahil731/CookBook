@@ -65,7 +65,9 @@ function createDetails(detailsData, isOwner) {
                         <p>${detailsData.preparation}</p>
                     </div>
                 </div>
+                <div class="edit-delete-btn">
                 ${isOwner ? `<a href="" id="edit-btn" data-id=${detailsData.id}>Edit</a>
                     <a href="" id="delete-btn" data-id=${detailsData.id}>Delete</a>` : ""}
+                </div>
             </div>`;
 }
