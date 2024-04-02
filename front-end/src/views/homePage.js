@@ -4,6 +4,7 @@ const ul = document.querySelector("ul");
 let ctx = null;
 
 export function showHome(context) {
+    ul.innerHTML = "";
     ctx = context
     createHomePage();
     ctx.render(homeSection);
