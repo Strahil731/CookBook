@@ -61,6 +61,22 @@ public class RecipeService {
     }
 
     @Transactional
+    public RecipeDto updateRecipe(RecipeCreateForm updatedRecipe, Long id){
+        RecipeEntity recipe = this.recipeRepository.findById(id).orElse(null);
+        recipe.setTitle(updatedRecipe.getTitle())
+                .setPreparation(updatedRecipe.getPreparation())
+                .setImageUrl(updatedRecipe.getImageUrl());
+
+        recipe = this.recipeRepository.save(recipe);
+
+        List<IngredientEntity> ingredients = extractIngredients(updatedRecipe, recipe);
+
+        this.ingredientRepository.saveAll(ingredients);
+
+        return modelMapper.map(recipe, RecipeDto.class);
+    }
+
+    @Transactional
     public void deleteRecipeById(Long id) {
         this.recipeRepository.deleteById(id);
     }
