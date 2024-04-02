@@ -5,7 +5,7 @@ let ctx = null;
 
 export function showHome(context) {
     ctx = context
-    ul.innerHTML = createHomePage();
+    createHomePage();
     ctx.render(homeSection);
 }
 
