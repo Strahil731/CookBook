@@ -42,7 +42,7 @@ public class RecipeController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<RecipeDto> updateRecipe(@RequestBody RecipeCreateForm updatedRecipe, @PathVariable Long id) {
+    public ResponseEntity<RecipeDto> updateRecipe(@RequestBody RecipeCreateForm updatedRecipe, @PathVariable(name = "id") Long id) {
         RecipeDto recipe = this.recipeService.updateRecipe(updatedRecipe, id);
 
         this.recipeService.refreshRecipes();
