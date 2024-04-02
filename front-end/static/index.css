@@ -65,7 +65,7 @@ body {
 }
 
 .card_image {
-    height: calc(13*1.2rem);
+    height: calc(13 * 1.2rem);
     padding: 1.2rem 1.2rem 0;
     position: relative;
 }
@@ -110,18 +110,18 @@ body {
     background: repeating-linear-gradient(#0000 0 calc(1.2rem - 1px), #66afe1 0 1.2rem) right bottom /100% 100%, linear-gradient(red 0 0) 30px 0/2px 100% #fff;
     background-repeat: no-repeat;
     line-height: 1.2rem;
-    -webkit-mask: radial-gradient(circle .8rem at 2px 50%, #0000 98%, #000)0 0/100% 2.4rem;
+    -webkit-mask: radial-gradient(circle .8rem at 2px 50%, #0000 98%, #000) 0 0/100% 2.4rem;
 }
 
 .card_content {
     padding: 1.2rem;
 }
 
-.card_content h2{
+.card_content h2 {
     text-align: center;
 }
 
-.card_content .details-btn{
+.card_content .details-btn {
     margin-left: 90px;
     margin-right: 70px;
     padding: 8px;
@@ -130,7 +130,7 @@ body {
     color: #FFF;
 }
 
-.card_content .details-btn:hover{
+.card_content .details-btn:hover {
     background-color: #ADFF2F;
     color: #000;
 }
@@ -153,9 +153,6 @@ body {
 html {
     font-size: 15px;
 }
-
-
-
 
 
 .login {
@@ -297,7 +294,7 @@ html {
     text-decoration: underline;
 }
 
-.create {
+.create, .edit {
     background: #FFF;
     width: 50%;
     padding-bottom: 30px;
@@ -305,25 +302,30 @@ html {
     margin-left: auto;
 }
 
-.create h2 {
+.create h2,
+.edit h2 {
     padding: 20px;
     text-align: center;
 }
 
-.create .createForm {
+.create .createForm,
+.edit .editForm {
     width: 50%;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-.create label{
+.create label,
+.edit label {
     font-size: 17px;
     margin-left: -60px;
 }
 
 .create input[type="url"],
-.create input[type="text"] {
+.create input[type="text"],
+.edit input[type="url"],
+.edit input[type="text"]{
     width: 140%;
     padding: 20px 20px;
     margin: 8px;
@@ -335,7 +337,8 @@ html {
     box-sizing: border-box;
 }
 
-.create textarea[type="text"]{
+.create textarea[type="text"],
+.edit textarea[type="text"]{
     width: 120%;
     padding: 50px 44px;
     margin: 8px;
@@ -343,10 +346,11 @@ html {
     margin-bottom: 20px;
     border: 1px solid #000;
     border-radius: 4px;
-    
+
 }
 
-.create input[type="submit"] {
+.create input[type="submit"],
+.edit input[type="submit"]{
     padding: 14px 20px;
     margin: 8px 0;
     border: 1px solid #000;
@@ -357,8 +361,24 @@ html {
     color: #FFF;
 }
 
-.create input[type="submit"]:hover {
+.create input[type="submit"]:hover,
+.edit input[type="submit"]:hover{
     background: #ADFF2F;
+    color: #000;
+}
+
+.edit-delete-btn a{
+    text-align: center;
+    margin-left: 90px;
+    margin-right: 70px;
+    padding: 15px;
+    text-decoration: none;
+    background-color: #1E90FF;
+    color: #FFF;
+}
+
+.edit-delete-btn a:hover{
+    background-color: #ADFF2F;
     color: #000;
 }
 
@@ -381,28 +401,28 @@ footer {
         border-radius: 0px;
     }
 
-    .card_content .details-btn{
+    .card_content .details-btn {
         margin-left: 110px;
         margin-right: 20px;
     }
 }
 
 @media screen and (max-width: 700px) {
-    .card_content .details-btn{
+    .card_content .details-btn {
         margin-left: 70px;
         margin-right: 50px;
     }
 }
 
 @media screen and (max-width: 940px) {
-    .card_content .details-btn{
+    .card_content .details-btn {
         margin-left: 140px;
         margin-right: 50px;
     }
 }
 
 @media screen and (max-width: 1000px) {
-    .card_content .details-btn{
+    .card_content .details-btn {
         margin-left: 70px;
         margin-right: 50px;
     }
