@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cook-book</title>
     <link rel="stylesheet" type="text/css" href="./static/index.css" />
-    <script type="module" src="./app.js"></script>
+    <script type="module" src="./src/app.js"></script>
 </head>
 
 <body>
@@ -34,7 +34,7 @@
                 <input type="checkbox" id="loginCheck" />Remember me
                 <p class="right">Forgot <a href="">password</a> ?</p>
                 <input type="submit" id="loginBtn" value="Login" />
-                <p>You don't have and Account ? <a href="">Register</a></p>
+                <p>You don't have and Account ? <a id="registerBtn" href="/register">Register</a></p>
             </form>
         </section>
 
@@ -47,7 +47,7 @@
                 <input type="password" id="registerPassword" placeholder="Password" />
                 <input type="checkbox" id="registerCheck" />I agree to the terms
                 <input type="submit" id="registerBtn" value="Register" />
-                <p>You have an Account ? <a href="">Login</a></p>
+                <p>You have an Account ? <a id="loginBtn" href="/login">Login</a></p>
             </form>
         </section>
 
@@ -63,6 +63,23 @@
                 <label>Method of preparation:</label>
                 <textarea type="text" id="createDescription"></textarea>
                 <input type="submit" id="createBtn" value="Create" />
+            </form>
+        </section>
+
+        <section class="details" id="details"></section>
+
+        <section class="edit" id="editView">
+            <h2>Edit recipe</h2>
+            <form class="editForm" id="editForm">
+                <label>Image URL</label>
+                <input type="url" id="imgURL" />
+                <label>Recipe Title</label>
+                <input type="text" id="createTitle" />
+                <label>Products -> <b>one per line</b> / Example: <b>Eggs-2br</b></label>
+                <textarea type="text" id="createProduction"></textarea>
+                <label>Method of preparation:</label>
+                <textarea type="text" id="createDescription"></textarea>
+                <input type="submit" id="createBtn" value="Update" />
             </form>
         </section>
     </main>
