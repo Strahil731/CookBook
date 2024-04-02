@@ -30,11 +30,6 @@ public class RecipeController {
         return new ResponseEntity<>(this.recipeService.getAllRecipes(), HttpStatus.OK);
     }
 
-    @GetMapping("/evict")
-    public void refresh() {
-        this.recipeService.refreshRecipes();
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<RecipeDto> getRecipeById(@PathVariable(name = "id") Long id) {
         RecipeDto recipe = this.recipeService.getRecipeById(id);
