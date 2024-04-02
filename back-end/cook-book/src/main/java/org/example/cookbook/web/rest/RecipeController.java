@@ -40,4 +40,11 @@ public class RecipeController {
 
         return new ResponseEntity<>(recipe, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<RecipeDto> deleteRecipeById(@PathVariable(name = "id") Long id) {
+        this.recipeService.deleteRecipeById(id);
+
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
 }

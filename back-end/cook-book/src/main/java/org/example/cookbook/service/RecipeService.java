@@ -59,6 +59,10 @@ public class RecipeService {
                 .orElse(null);
     }
 
+    public void deleteRecipeById(Long id) {
+        this.recipeRepository.deleteById(id);
+    }
+
     private List<IngredientEntity> extractIngredients(RecipeCreateForm recipeCreateForm, RecipeEntity recipe) {
         String[] arr = recipeCreateForm.getIngredients().split("\\r?\\n");
         List<IngredientEntity> ingredients = new ArrayList<>();
