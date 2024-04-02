@@ -54,6 +54,12 @@ public class RecipeService {
         return modelMapper.map(recipe, RecipeDto.class);
     }
 
+    public RecipeDto getRecipeById(Long id) {
+        return this.recipeRepository.findById(id)
+                .map(r -> modelMapper.map(r, RecipeDto.class))
+                .orElse(null);
+    }
+
     private List<IngredientEntity> extractIngredients(RecipeCreateForm recipeCreateForm, RecipeEntity recipe) {
         String[] arr = recipeCreateForm.getIngredients().split("\\r?\\n");
         List<IngredientEntity> ingredients = new ArrayList<>();
@@ -68,7 +74,7 @@ public class RecipeService {
     }
 
     @CacheEvict(cacheNames = "recipes", allEntries = true)
-    public void refreshRecipes(){
+    public void refreshRecipes() {
 
     }
 }

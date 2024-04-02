@@ -25,4 +25,15 @@ public class RecipeController {
     public ResponseEntity<List<RecipeDto>> getAllRecipes() {
         return new ResponseEntity<>(this.recipeService.getAllRecipes(), HttpStatus.OK);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<RecipeDto> getRecipeById(@PathVariable(name = "id") Long id) {
+        RecipeDto recipe = this.recipeService.getRecipeById(id);
+
+        if (recipe == null) {
+            return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
+        }
+
+        return new ResponseEntity<>(recipe, HttpStatus.OK);
+    }
 }
