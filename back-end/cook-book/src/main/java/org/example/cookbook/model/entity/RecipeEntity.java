@@ -1,11 +1,13 @@
 package org.example.cookbook.model.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.DynamicUpdate;
 
 import java.util.List;
 
 @Entity
 @Table(name = "recipes")
+@DynamicUpdate
 public class RecipeEntity extends BaseEntity {
     @Column
     private String title;
