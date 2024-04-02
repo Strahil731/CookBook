@@ -117,12 +117,31 @@ body {
     padding: 1.2rem;
 }
 
+.card_content h2{
+    text-align: center;
+}
+
+.card_content .details-btn{
+    margin-left: 90px;
+    margin-right: 70px;
+    padding: 8px;
+    text-decoration: none;
+    background-color: #1E90FF;
+    color: #FFF;
+}
+
+.card_content .details-btn:hover{
+    background-color: #ADFF2F;
+    color: #000;
+}
+
 h2.card_title,
 p {
     margin: 1.2rem 0;
 }
 
 h2.card_title {
+    margin-bottom: 20px;
     font-size: 1.3em;
 }
 
@@ -360,5 +379,31 @@ footer {
     .register,
     .create {
         border-radius: 0px;
+    }
+
+    .card_content .details-btn{
+        margin-left: 110px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .card_content .details-btn{
+        margin-left: 70px;
+        margin-right: 50px;
+    }
+}
+
+@media screen and (max-width: 940px) {
+    .card_content .details-btn{
+        margin-left: 140px;
+        margin-right: 50px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .card_content .details-btn{
+        margin-left: 70px;
+        margin-right: 50px;
     }
 }
