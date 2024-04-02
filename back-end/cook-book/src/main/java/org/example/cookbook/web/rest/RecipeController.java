@@ -18,12 +18,21 @@ public class RecipeController {
 
     @PostMapping("/create")
     public ResponseEntity<RecipeDto> createRecipe(@RequestBody RecipeCreateForm recipeCreateForm) {
-        return new ResponseEntity<>(this.recipeService.createRecipe(recipeCreateForm), HttpStatus.CREATED);
+        RecipeDto recipe = this.recipeService.createRecipe(recipeCreateForm);
+
+        this.recipeService.refreshRecipes();
+
+        return new ResponseEntity<>(recipe, HttpStatus.CREATED);
     }
 
     @GetMapping("/all")
     public ResponseEntity<List<RecipeDto>> getAllRecipes() {
         return new ResponseEntity<>(this.recipeService.getAllRecipes(), HttpStatus.OK);
+    }
+
+    @GetMapping("/evict")
+    public void refresh() {
+        this.recipeService.refreshRecipes();
     }
 
     @GetMapping("/{id}")
