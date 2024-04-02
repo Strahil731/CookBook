@@ -45,6 +45,8 @@ public class RecipeController {
     public ResponseEntity<RecipeDto> deleteRecipeById(@PathVariable(name = "id") Long id) {
         this.recipeService.deleteRecipeById(id);
 
+        this.recipeService.refreshRecipes();
+
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
 }
