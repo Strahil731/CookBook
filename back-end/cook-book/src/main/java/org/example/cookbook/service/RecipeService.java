@@ -61,13 +61,15 @@ public class RecipeService {
     }
 
     @Transactional
-    public RecipeDto updateRecipe(RecipeCreateForm updatedRecipe, Long id){
+    public RecipeDto updateRecipe(RecipeCreateForm updatedRecipe, Long id) {
         RecipeEntity recipe = this.recipeRepository.findById(id).orElse(null);
         recipe.setTitle(updatedRecipe.getTitle())
                 .setPreparation(updatedRecipe.getPreparation())
                 .setImageUrl(updatedRecipe.getImageUrl());
 
         recipe = this.recipeRepository.save(recipe);
+
+        this.ingredientRepository.deleteAllByRecipeId(recipe);
 
         List<IngredientEntity> ingredients = extractIngredients(updatedRecipe, recipe);
 
