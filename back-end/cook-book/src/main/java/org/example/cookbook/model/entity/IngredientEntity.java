@@ -4,14 +4,12 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
 @Table(name = "ingredients")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@DynamicUpdate
 public class IngredientEntity extends BaseEntity {
     @Column
     private String name;
