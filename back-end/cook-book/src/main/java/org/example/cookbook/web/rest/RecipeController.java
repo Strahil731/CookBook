@@ -58,4 +58,12 @@ public class RecipeController {
 
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<RecipeDto>> searchRecipe(@RequestParam(name = "filter") String filter) {
+        List<RecipeDto> recipes = this.recipeService.searchRecipes(filter);
+        HttpStatus status = recipes.isEmpty() ? HttpStatus.NOT_FOUND : HttpStatus.OK;
+
+        return new ResponseEntity<>(recipes, status);
+    }
 }
