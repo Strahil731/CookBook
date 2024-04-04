@@ -4,8 +4,8 @@
 A website providing the necessary information for every avid foodie. On this site, a user can search for any recipe that provides him with a photo with a title, the required products and a method of preparation. If a user logs in or registers, he has the right to create recipes for everyone else to see, and the recipes that user has uploaded can be edited or deleted.
 ## Authors
 
-- @Strahil(Front-end)
-- @Kalin (Back-end)
+- [@Strahil ](https://github.com/Strahil731) (Front-end)
+- [@kalin ](https://github.com/kalin73) (Back-end)
 
 
 ## Tech Stack
