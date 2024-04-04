@@ -30,7 +30,7 @@ async function createHomePage() {
                 </div>
                 <div class="card_content">
                     <h2 class="card_title">${el.title}</h2>
-                    <a class="details-btn" href="details" data-id="${el.id}">Show More</a>
+                    <center><a class="details-btn" href="details" data-id="${el.id}">Show More</a></center>
                 </div>
             </div>
         </li>`;
