@@ -99,7 +99,7 @@ public class RecipeService {
 
     public List<RecipeDto> searchRecipes(String title) {
         return this.recipeRepository.searchByTitle(title.toLowerCase())
-                .orElseThrow()
+                .orElse(null)
                 .stream()
                 .map(r -> modelMapper.map(r, RecipeDto.class))
                 .toList();
