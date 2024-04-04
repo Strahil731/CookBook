@@ -51,8 +51,8 @@ function createDetails(detailsData, isOwner) {
         ingredients += `<li>${product.name} - ${product.quantity}</li>`;
     }
     return `<div class="card">
-                <div class="card_image">
-                    <img src="${detailsData.imageUrl}" alt="" />
+                <div class="details_image">
+                    <center><img src="${detailsData.imageUrl}" alt="" /></center>
                 </div>
                 <div class="card_content">
                     <h2 class="card_title">${detailsData.title}</h2>
