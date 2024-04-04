@@ -5,6 +5,7 @@ import {showRegister} from "./views/registerPage.js";
 import {showCreatePage} from "./views/createPage.js";
 import {showDetails} from "./views/detailsPage.js";
 import {showEdit} from "./views/editPage.js";
+import {showSearch} from "./views/searchPage.js";
 
 document.querySelectorAll("section").forEach(section => section.remove());
 
@@ -25,6 +26,7 @@ const routes = {
     "/create": showCreatePage,
     "/details": showDetails,
     "/edit": showEdit,
+    "/search": showSearch,
     "/logout": async () => {
         await sessionStorage.removeItem("userData");
         updateNav();
