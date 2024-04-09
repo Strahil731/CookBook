@@ -5,14 +5,14 @@ A website providing the necessary information for every avid foodie. On this sit
 ## Authors
 
 - [@Strahil ](https://github.com/Strahil731) (Front-end)
-- [@kalin ](https://github.com/kalin73) (Back-end)
+- [@Kalin ](https://github.com/kalin73) (Back-end)
 
 
 ## Tech Stack
 
 **Front-end:** HTML, CSS, JAVASCRIPT
 
-**Back-end"** Java, Spring web
+**Back-end:** Java, Spring web
 
 **Database:** PostgreSQL
 
