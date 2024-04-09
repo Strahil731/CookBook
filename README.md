@@ -28,7 +28,7 @@ Login Page
 Register Page
 ![RegisterPage](https://github.com/Strahil731/CookBook/blob/main/Screenshot/Screenshot_1.png?raw=true)
 
-Home Page with login/register user
+Home Page as logged-In user
 ![HomePage](https://github.com/Strahil731/CookBook/blob/main/Screenshot/Screenshot%202024-04-04%20223010.png?raw=true)
 
 Create Page
