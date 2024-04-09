@@ -19,7 +19,7 @@ A website providing the necessary information for every avid foodie. On this sit
 
 ## Screenshots
 
-Home Page without login user
+Home Page as guest
 ![HomePage](https://github.com/Strahil731/CookBook/blob/main/Screenshot/Screenshot%202024-04-04%20222822.png?raw=true)
 
 Login Page
