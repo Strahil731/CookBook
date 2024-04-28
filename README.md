@@ -5,21 +5,21 @@ A website providing the necessary information for every avid foodie. On this sit
 ## Authors
 
 - [@Strahil ](https://github.com/Strahil731) (Front-end)
-- [@kalin ](https://github.com/kalin73) (Back-end)
+- [@Kalin ](https://github.com/kalin73) (Back-end)
 
 
 ## Tech Stack
 
 **Front-end:** HTML, CSS, JAVASCRIPT
 
-**Back-end"** Java, Spring web
+**Back-end:** Java, Spring web
 
 **Database:** PostgreSQL
 
 
 ## Screenshots
 
-Home Page without login user
+Home Page as guest
 ![HomePage](https://github.com/Strahil731/CookBook/blob/main/Screenshot/Screenshot%202024-04-04%20222822.png?raw=true)
 
 Login Page
@@ -28,7 +28,7 @@ Login Page
 Register Page
 ![RegisterPage](https://github.com/Strahil731/CookBook/blob/main/Screenshot/Screenshot_1.png?raw=true)
 
-Home Page with login/register user
+Home Page as logged-In user
 ![HomePage](https://github.com/Strahil731/CookBook/blob/main/Screenshot/Screenshot%202024-04-04%20223010.png?raw=true)
 
 Create Page
