@@ -29,8 +29,13 @@ async function onLogin(event) {
         body: JSON.stringify({email, password})
     });
     if (response.status === 401) {
-        return alert("Invalid email or password");
+        return alert("Invalid email or password!");
     }
+
+    if (response.status === 400) {
+        return alert("Password length should be at least 3 characters!");
+    }
+
     const data = await response.json();
 
     setUser(data);
