@@ -29,9 +29,9 @@ export async function showDetails(context, data) {
 async function onDelete(event) {
     event.preventDefault();
     const id = event.target.dataset.id;
-    const choise = confirm("Are you sure you want delete this recipe?");
+    const choice = confirm("Are you sure you want delete this recipe?");
 
-    if (choise) {
+    if (choice) {
         await fetch(`http://localhost:8080/api/recipe/${id}`, {
             methods: "DELETE"
         });
