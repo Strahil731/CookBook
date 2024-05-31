@@ -18,7 +18,7 @@ public class RecipeEntity extends BaseEntity {
     @Column(name = "image_url")
     private String imageUrl;
 
-    @OneToMany(fetch = FetchType.EAGER, targetEntity = IngredientEntity.class, mappedBy = "recipeId", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "recipeId", cascade = CascadeType.ALL)
     private List<IngredientEntity> ingredients;
 
     @ManyToOne(targetEntity = UserEntity.class)
