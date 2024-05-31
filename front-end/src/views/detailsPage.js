@@ -33,7 +33,7 @@ async function onDelete(event) {
 
     if (choice) {
         await fetch(`http://localhost:8080/api/recipe/${id}`, {
-            methods: "DELETE"
+            method: "DELETE"
         });
         ctx.goTo("/home");
     }
